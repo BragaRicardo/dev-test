@@ -21,7 +21,7 @@ Este proyecto es mantenido por softec, una empresa dedicada a crear soluciones t
 * Filtro por estado, nombre y lo que se crea pertinente
 Cada Usuario debe contener minimamente los siguientes datos:
 * Identificador único
-* Nombre comleto
+* Nombre completo
 * Contraseña (cifrado es opcional)
 * Correo electrónico 
 * Estado (ACTIVO e INACTIVO) 
