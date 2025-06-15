@@ -82,11 +82,13 @@ A continuación, se detallan las instrucciones para ejecutar tanto el backend co
    
    ```
 2. **Configurar Docker para la Base de Datos**:
-   - En la raíz del proyecto, encontrarás un archivo ```
+   - En la raíz del proyecto, encontrarás un archivo 
+   
+     ```
      docker-compose.yml
      ```
-
-      que contiene la configuración para PostgreSQL.
+	 
+      Que contiene la configuración para PostgreSQL.
 
    ```
    version: '3.8'
@@ -117,17 +119,16 @@ A continuación, se detallan las instrucciones para ejecutar tanto el backend co
    
    ```
 5. **Configurar la Conexión a la Base de Datos**:
-   - Asegúrate de que tu archivo de configuración ( ```
-     appsettings.json
+   - Asegúrate de que tu archivo de configuración:
+     
      ```
-
-     ) esté configurado para conectarse a la base de datos PostgreSQL en Docker. Un ejemplo de cadena de conexión podría ser:
-
+	   appsettings.json
+     ```
+	 Esté configurado para conectarse a la base de datos PostgreSQL en Docker. Un ejemplo de cadena de conexión podría ser:
    ```
-   "ConnectionStrings": {
-     "DefaultConnection": "Host=db;Port=5432;Database=mydatabase;Username=user;Password=password;"
-   }
-   
+	   "ConnectionStrings": {
+		 "DefaultConnection": "Host=db;Port=5432;Database=mydatabase;Username=user;Password=password;"
+	   }
    ```
 6. **Ejecutar la Aplicación**:
 
@@ -165,7 +166,7 @@ A continuación, se detallan las instrucciones para ejecutar tanto el backend co
      http://localhost:3000
      ```
 
-      para ver la aplicación en funcionamiento.
+      Para ver la aplicación en funcionamiento.
 
 ## Envíar el código para evaluación
 
