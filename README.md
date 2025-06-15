@@ -62,6 +62,111 @@ Adjuntar cualquier documentación al proyecto en forma de archivos con extensió
 
 Se recomienda ir haciendo commits a medida que se avanza con la solución. Agrupando estos commits si corresponde hacerlo.
 
+## Cómo Correr el Proyecto
+
+A continuación, se detallan las instrucciones para ejecutar tanto el backend como el frontend de este proyecto por separado, utilizando Docker para la base de datos.
+
+### Requisitos Previos
+
+- **Backend**: [.NET SDK](https://dotnet.microsoft.com/download)
+- **Docker**: [Docker](https://www.docker.com/get-started)
+- **Frontend**: [Node.js](https://nodejs.org/) y [npm](https://www.npmjs.com/)
+
+### Pasos para Ejecutar el Backend
+
+1. **Clonar el Repositorio**:
+
+   ```
+   git clone <https://github.com/BragaRicardo/dev-test.git>
+   cd <DevTest.API>
+   
+   ```
+2. **Configurar Docker para la Base de Datos**:
+   - En la raíz del proyecto, encontrarás un archivo ```
+     docker-compose.yml
+     ```
+
+      que contiene la configuración para PostgreSQL.
+
+   ```
+   version: '3.8'
+   services:
+     db:
+       image: postgres
+       restart: always
+       environment:
+         POSTGRES_USER: user
+         POSTGRES_PASSWORD: password
+         POSTGRES_DB: mydatabase
+       ports:
+         - "5432:5432"
+   
+   ```
+
+3. **Levantar la Base de Datos**:
+   - Desde la raíz del proyecto, ejecuta el siguiente comando para levantar la base de datos en un contenedor Docker:
+
+   ```
+   docker-compose up -d
+   
+   ```
+4. **Restaurar Dependencias del Backend**:
+
+   ```
+   dotnet restore
+   
+   ```
+5. **Configurar la Conexión a la Base de Datos**:
+   - Asegúrate de que tu archivo de configuración ( ```
+     appsettings.json
+     ```
+
+     ) esté configurado para conectarse a la base de datos PostgreSQL en Docker. Un ejemplo de cadena de conexión podría ser:
+
+   ```
+   "ConnectionStrings": {
+     "DefaultConnection": "Host=db;Port=5432;Database=mydatabase;Username=user;Password=password;"
+   }
+   
+   ```
+6. **Ejecutar la Aplicación**:
+
+   ```
+   dotnet run
+   
+   ```
+7. **Probar la API**:
+   - Puedes usar herramientas como [Postman](https://www.postman.com/) o [cURL](https://curl.se/) para probar los endpoints de la API.
+
+### Pasos para Ejecutar el Frontend
+
+1. **Clonar el Repositorio**:
+   (Si no lo has hecho ya)
+
+   ```
+   git clone <https://github.com/BragaRicardo/dev-test.git>
+   cd <devtest-web>
+   
+   ```
+2. **Instalar Dependencias**:
+
+   ```
+   npm install
+   
+   ```
+3. **Ejecutar la Aplicación**:
+
+   ```
+   npm run dev
+   
+   ```
+4. **Acceder a la Aplicación**:
+   - Abre tu navegador y ve a ```
+     http://localhost:3000
+     ```
+
+      para ver la aplicación en funcionamiento.
+
 ## Envíar el código para evaluación
 
 Luego al finalizar enviar un email con el link al fork a la persona que te envió este test.
