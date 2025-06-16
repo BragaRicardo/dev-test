@@ -1,0 +1,277 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\User\\Documents\\GitHub\\dev-test\\DevTest-API\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5754D1BE-2AAD-49D0-AF87-9F99E6C13056}|DevTest-API.csproj|c:\\users\\user\\documents\\github\\dev-test\\devtest-api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{5754D1BE-2AAD-49D0-AF87-9F99E6C13056}|DevTest-API.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5754D1BE-2AAD-49D0-AF87-9F99E6C13056}|DevTest-API.csproj|c:\\users\\user\\documents\\github\\dev-test\\devtest-api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5754D1BE-2AAD-49D0-AF87-9F99E6C13056}|DevTest-API.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5754D1BE-2AAD-49D0-AF87-9F99E6C13056}|DevTest-API.csproj|c:\\users\\user\\documents\\github\\dev-test\\devtest-api\\validator\\usuariovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5754D1BE-2AAD-49D0-AF87-9F99E6C13056}|DevTest-API.csproj|solutionrelative:validator\\usuariovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5754D1BE-2AAD-49D0-AF87-9F99E6C13056}|DevTest-API.csproj|c:\\users\\user\\documents\\github\\dev-test\\devtest-api\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5754D1BE-2AAD-49D0-AF87-9F99E6C13056}|DevTest-API.csproj|solutionrelative:controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5754D1BE-2AAD-49D0-AF87-9F99E6C13056}|DevTest-API.csproj|c:\\users\\user\\documents\\github\\dev-test\\devtest-api\\devtest-api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{5754D1BE-2AAD-49D0-AF87-9F99E6C13056}|DevTest-API.csproj|solutionrelative:devtest-api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5754D1BE-2AAD-49D0-AF87-9F99E6C13056}|DevTest-API.csproj|c:\\users\\user\\documents\\github\\dev-test\\devtest-api\\dtos\\usuariocreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5754D1BE-2AAD-49D0-AF87-9F99E6C13056}|DevTest-API.csproj|solutionrelative:dtos\\usuariocreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5754D1BE-2AAD-49D0-AF87-9F99E6C13056}|DevTest-API.csproj|c:\\users\\user\\documents\\github\\dev-test\\devtest-api\\entities\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5754D1BE-2AAD-49D0-AF87-9F99E6C13056}|DevTest-API.csproj|solutionrelative:entities\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5754D1BE-2AAD-49D0-AF87-9F99E6C13056}|DevTest-API.csproj|c:\\users\\user\\documents\\github\\dev-test\\devtest-api\\repositories\\interfaces\\iusuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5754D1BE-2AAD-49D0-AF87-9F99E6C13056}|DevTest-API.csproj|solutionrelative:repositories\\interfaces\\iusuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5754D1BE-2AAD-49D0-AF87-9F99E6C13056}|DevTest-API.csproj|c:\\users\\user\\documents\\github\\dev-test\\devtest-api\\services\\interfaces\\iusuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5754D1BE-2AAD-49D0-AF87-9F99E6C13056}|DevTest-API.csproj|solutionrelative:services\\interfaces\\iusuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5754D1BE-2AAD-49D0-AF87-9F99E6C13056}|DevTest-API.csproj|c:\\users\\user\\documents\\github\\dev-test\\devtest-api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5754D1BE-2AAD-49D0-AF87-9F99E6C13056}|DevTest-API.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5754D1BE-2AAD-49D0-AF87-9F99E6C13056}|DevTest-API.csproj|c:\\users\\user\\documents\\github\\dev-test\\devtest-api\\services\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5754D1BE-2AAD-49D0-AF87-9F99E6C13056}|DevTest-API.csproj|solutionrelative:services\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5754D1BE-2AAD-49D0-AF87-9F99E6C13056}|DevTest-API.csproj|c:\\users\\user\\documents\\github\\dev-test\\devtest-api\\repositories\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5754D1BE-2AAD-49D0-AF87-9F99E6C13056}|DevTest-API.csproj|solutionrelative:repositories\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5754D1BE-2AAD-49D0-AF87-9F99E6C13056}|DevTest-API.csproj|c:\\users\\user\\documents\\github\\dev-test\\devtest-api\\entities\\enums\\sexo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5754D1BE-2AAD-49D0-AF87-9F99E6C13056}|DevTest-API.csproj|solutionrelative:entities\\enums\\sexo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5754D1BE-2AAD-49D0-AF87-9F99E6C13056}|DevTest-API.csproj|c:\\users\\user\\documents\\github\\dev-test\\devtest-api\\entities\\enums\\rol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5754D1BE-2AAD-49D0-AF87-9F99E6C13056}|DevTest-API.csproj|solutionrelative:entities\\enums\\rol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5754D1BE-2AAD-49D0-AF87-9F99E6C13056}|DevTest-API.csproj|c:\\users\\user\\documents\\github\\dev-test\\devtest-api\\dtos\\usuarioresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5754D1BE-2AAD-49D0-AF87-9F99E6C13056}|DevTest-API.csproj|solutionrelative:dtos\\usuarioresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5754D1BE-2AAD-49D0-AF87-9F99E6C13056}|DevTest-API.csproj|c:\\users\\user\\documents\\github\\dev-test\\devtest-api\\dtos\\usuariologindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5754D1BE-2AAD-49D0-AF87-9F99E6C13056}|DevTest-API.csproj|solutionrelative:dtos\\usuariologindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 167,
+          "SelectedChildIndex": 11,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UsuarioValidator.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\dev-test\\DevTest-API\\Validator\\UsuarioValidator.cs",
+              "RelativeDocumentMoniker": "Validator\\UsuarioValidator.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\dev-test\\DevTest-API\\Validator\\UsuarioValidator.cs",
+              "RelativeToolTip": "Validator\\UsuarioValidator.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAAC0AAABaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T00:53:31.059Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DevTest-API.csproj",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\dev-test\\DevTest-API\\DevTest-API.csproj",
+              "RelativeDocumentMoniker": "DevTest-API.csproj",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\dev-test\\DevTest-API\\DevTest-API.csproj",
+              "RelativeToolTip": "DevTest-API.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-06-16T00:31:58.636Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UsuarioController.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\dev-test\\DevTest-API\\Controllers\\UsuarioController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UsuarioController.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\dev-test\\DevTest-API\\Controllers\\UsuarioController.cs",
+              "RelativeToolTip": "Controllers\\UsuarioController.cs",
+              "ViewState": "AgIAAKEAAAAAAAAAAAAAALsAAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T23:22:07.312Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IUsuarioService.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\dev-test\\DevTest-API\\Services\\Interfaces\\IUsuarioService.cs",
+              "RelativeDocumentMoniker": "Services\\Interfaces\\IUsuarioService.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\dev-test\\DevTest-API\\Services\\Interfaces\\IUsuarioService.cs",
+              "RelativeToolTip": "Services\\Interfaces\\IUsuarioService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T22:35:15.843Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IUsuarioRepository.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\dev-test\\DevTest-API\\Repositories\\Interfaces\\IUsuarioRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Interfaces\\IUsuarioRepository.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\dev-test\\DevTest-API\\Repositories\\Interfaces\\IUsuarioRepository.cs",
+              "RelativeToolTip": "Repositories\\Interfaces\\IUsuarioRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T22:34:18.454Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UsuarioCreateDto.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\dev-test\\DevTest-API\\DTOs\\UsuarioCreateDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\UsuarioCreateDto.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\dev-test\\DevTest-API\\DTOs\\UsuarioCreateDto.cs",
+              "RelativeToolTip": "DTOs\\UsuarioCreateDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T22:21:59.086Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\dev-test\\DevTest-API\\Entities\\Usuario.cs",
+              "RelativeDocumentMoniker": "Entities\\Usuario.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\dev-test\\DevTest-API\\Entities\\Usuario.cs",
+              "RelativeToolTip": "Entities\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T22:22:04.984Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UsuarioService.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\dev-test\\DevTest-API\\Services\\UsuarioService.cs",
+              "RelativeDocumentMoniker": "Services\\UsuarioService.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\dev-test\\DevTest-API\\Services\\UsuarioService.cs",
+              "RelativeToolTip": "Services\\UsuarioService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFoAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T22:34:36.01Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "UsuarioRepository.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\dev-test\\DevTest-API\\Repositories\\UsuarioRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\UsuarioRepository.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\dev-test\\DevTest-API\\Repositories\\UsuarioRepository.cs",
+              "RelativeToolTip": "Repositories\\UsuarioRepository.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T22:34:05.441Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\dev-test\\DevTest-API\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\dev-test\\DevTest-API\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T23:03:19.972Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\dev-test\\DevTest-API\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\dev-test\\DevTest-API\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T22:58:02.69Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\dev-test\\DevTest-API\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\dev-test\\DevTest-API\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-06-15T22:59:30.715Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Sexo.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\dev-test\\DevTest-API\\Entities\\Enums\\Sexo.cs",
+              "RelativeDocumentMoniker": "Entities\\Enums\\Sexo.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\dev-test\\DevTest-API\\Entities\\Enums\\Sexo.cs",
+              "RelativeToolTip": "Entities\\Enums\\Sexo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T22:45:17.593Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Rol.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\dev-test\\DevTest-API\\Entities\\Enums\\Rol.cs",
+              "RelativeDocumentMoniker": "Entities\\Enums\\Rol.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\dev-test\\DevTest-API\\Entities\\Enums\\Rol.cs",
+              "RelativeToolTip": "Entities\\Enums\\Rol.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T22:45:12.43Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "UsuarioResponseDto.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\dev-test\\DevTest-API\\DTOs\\UsuarioResponseDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\UsuarioResponseDto.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\dev-test\\DevTest-API\\DTOs\\UsuarioResponseDto.cs",
+              "RelativeToolTip": "DTOs\\UsuarioResponseDto.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T22:24:34.418Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "UsuarioLoginDto.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\dev-test\\DevTest-API\\DTOs\\UsuarioLoginDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\UsuarioLoginDto.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\dev-test\\DevTest-API\\DTOs\\UsuarioLoginDto.cs",
+              "RelativeToolTip": "DTOs\\UsuarioLoginDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T22:37:34.183Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
