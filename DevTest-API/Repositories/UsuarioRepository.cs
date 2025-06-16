@@ -1,4 +1,5 @@
-﻿using DevTest_API.Data;
+﻿using DevTest_API.Configuration;
+using DevTest_API.Data;
 using DevTest_API.Entities;
 using DevTest_API.Entities.Enums;
 using DevTest_API.Repositories.Interfaces;
@@ -31,6 +32,7 @@ namespace DevTest_API.Repositories
         public async Task<Usuario> CreateAsync(Usuario usuario)
         {
             usuario.FechaRegistro = DateTime.UtcNow;
+            usuario.PasswordHash = Base64Utils.Encode(usuario.PasswordHash);
             _context.Usuarios.Add(usuario);
             await _context.SaveChangesAsync();
             return usuario;

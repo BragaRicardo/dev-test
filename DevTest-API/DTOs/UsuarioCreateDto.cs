@@ -1,6 +1,7 @@
 ﻿using DevTest_API.Entities.Enums;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace DevTest_API.DTOs
 {
@@ -16,6 +17,7 @@ namespace DevTest_API.DTOs
 
         [Required]
         [Description("Sexo de la persona")]
+        [JsonConverter(typeof(JsonStringEnumConverter))]
         public Sexo Sexo { get; set; }
 
         [Required, EmailAddress(ErrorMessage = "Formato de correo inválido.")]
@@ -32,6 +34,7 @@ namespace DevTest_API.DTOs
 
         [Required]
         [Description("Rol del usuario")]
+        [JsonConverter(typeof(JsonStringEnumConverter))]
         public Rol Rol { get; set; }
     }
 }

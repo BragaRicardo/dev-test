@@ -107,12 +107,14 @@ namespace DevTest_API.Controllers
         /// <response code="201">Insertado Correctamente</response>
         /// <response code="400">Solicitud Incorrecta</response>
         /// <response code="401">No autorizado. Token ausente o inválido</response>
+        /// <response code="403">Prohibido. El usuario no tiene permisos para esta acción</response>
         /// <response code="500">Problema Interno de Aplicación</response>
         [HttpPost]
         [Authorize(Policy = "SoloAdmin")]
         [ProducesResponseType(statusCode: 201)]
         [ProducesResponseType(statusCode: 400)]
         [ProducesResponseType(statusCode: 401)]
+        [ProducesResponseType(statusCode: 403)]
         [ProducesResponseType(statusCode: 500)]
         [HttpPost]
         public async Task<IActionResult> InsertarUsuario([FromBody] UsuarioCreateDto usuarioDto, CancellationToken cancellationToken)
@@ -151,12 +153,14 @@ namespace DevTest_API.Controllers
         /// <response code="200">Actualizado Correctamente</response>
         /// <response code="204">Sin Contenido</response>
         /// <response code="401">No autorizado. Token ausente o inválido</response>
+        /// <response code="403">Prohibido. El usuario no tiene permisos para esta acción</response>
         /// <response code="500">Problema interno de aplicación</response>
         [HttpPut("{id}")]
         [Authorize(Policy = "SoloAdmin")]
         [ProducesResponseType(statusCode: 200)]
         [ProducesResponseType(statusCode: 204)]
         [ProducesResponseType(statusCode: 401)]
+        [ProducesResponseType(statusCode: 403)]
         [ProducesResponseType(statusCode: 500)]
         public async Task<IActionResult> ActualizarUsuario(int id, [FromBody] UsuarioCreateDto usuarioDto, CancellationToken cancellationToken)
         {
@@ -203,12 +207,14 @@ namespace DevTest_API.Controllers
         /// <response code="200">Eliminado Correctamente</response>
         /// <response code="204">Sin Contenido</response>
         /// <response code="401">No autorizado. Token ausente o inválido</response>
+        /// <response code="403">Prohibido. El usuario no tiene permisos para esta acción</response>
         /// <response code="500">Problema interno de aplicación</response>
         [HttpDelete("{id}")]
         [Authorize(Policy = "SoloAdmin")]
         [ProducesResponseType(statusCode: 200)]
         [ProducesResponseType(statusCode: 204)]
         [ProducesResponseType(statusCode: 401)]
+        [ProducesResponseType(statusCode: 403)]
         [ProducesResponseType(statusCode: 500)]
         public async Task<IActionResult> EliminarUsuario(int id)
         {

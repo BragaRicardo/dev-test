@@ -46,6 +46,7 @@
             <response code="201">Insertado Correctamente</response>
             <response code="400">Solicitud Incorrecta</response>
             <response code="401">No autorizado. Token ausente o inválido</response>
+            <response code="403">Prohibido. El usuario no tiene permisos para esta acción</response>
             <response code="500">Problema Interno de Aplicación</response>
         </member>
         <member name="M:DevTest_API.Controllers.UsuariosController.ActualizarUsuario(System.Int32,DevTest_API.DTOs.UsuarioCreateDto,System.Threading.CancellationToken)">
@@ -58,6 +59,7 @@
             <response code="200">Actualizado Correctamente</response>
             <response code="204">Sin Contenido</response>
             <response code="401">No autorizado. Token ausente o inválido</response>
+            <response code="403">Prohibido. El usuario no tiene permisos para esta acción</response>
             <response code="500">Problema interno de aplicación</response>
         </member>
         <member name="M:DevTest_API.Controllers.UsuariosController.EliminarUsuario(System.Int32)">
@@ -68,6 +70,7 @@
             <response code="200">Eliminado Correctamente</response>
             <response code="204">Sin Contenido</response>
             <response code="401">No autorizado. Token ausente o inválido</response>
+            <response code="403">Prohibido. El usuario no tiene permisos para esta acción</response>
             <response code="500">Problema interno de aplicación</response>
         </member>
         <member name="T:DevTest_API.Migrations.CrearTablaUsuarios">

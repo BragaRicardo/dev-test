@@ -1,4 +1,5 @@
-﻿using DevTest_API.DTOs;
+﻿using DevTest_API.Configuration;
+using DevTest_API.DTOs;
 using DevTest_API.Entities;
 using DevTest_API.Entities.Enums;
 using DevTest_API.Repositories.Interfaces;
@@ -45,7 +46,9 @@ namespace DevTest_API.Services
             var nuevo = new Usuario
             {
                 NombreCompleto = dto.NombreCompleto,
+                Cedula = dto.Cedula,
                 Correo = dto.Correo,
+                Direccion = dto.Direccion,
                 PasswordHash = dto.Password,
                 Rol = dto.Rol,
                 Estado = Estado.ACTIVO
@@ -55,7 +58,9 @@ namespace DevTest_API.Services
             {
                 Id = creado.Id,
                 NombreCompleto = creado.NombreCompleto,
+                Cedula = creado.Cedula,
                 Correo = creado.Correo,
+                Direccion = creado.Direccion,
                 Rol = creado.Rol,
                 Estado = creado.Estado,
                 FechaRegistro = creado.FechaRegistro
@@ -67,7 +72,9 @@ namespace DevTest_API.Services
             var existente = await _repo.GetByIdAsync(id);
             if (existente == null) return null;
             existente.NombreCompleto = dto.NombreCompleto;
+            existente.Cedula = dto.Cedula;
             existente.Correo = dto.Correo;
+            existente.Direccion = dto.Direccion;
             existente.PasswordHash = dto.Password;
             existente.Rol = dto.Rol;
             var actualizado = await _repo.UpdateAsync(existente);
@@ -75,7 +82,9 @@ namespace DevTest_API.Services
             {
                 Id = actualizado.Id,
                 NombreCompleto = actualizado.NombreCompleto,
+                Cedula = actualizado.Cedula,
                 Correo = actualizado.Correo,
+                Direccion = actualizado.Direccion,
                 Rol = actualizado.Rol,
                 Estado = actualizado.Estado,
                 FechaRegistro = actualizado.FechaRegistro
@@ -97,7 +106,8 @@ namespace DevTest_API.Services
             var u = await _repo.GetByCorreoAsync(correo);
             if (u == null || u.Estado != Estado.ACTIVO)
                 return null;
-            return u.PasswordHash == password ? u : null;
+            var decodedPassword = Base64Utils.Decode(u.PasswordHash);
+            return decodedPassword == password ? u : null;
         }
     }
 }
