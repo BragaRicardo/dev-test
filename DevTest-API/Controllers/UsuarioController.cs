@@ -1,12 +1,10 @@
 using DevTest_API.DTOs;
 using DevTest_API.Entities;
 using DevTest_API.Entities.Enums;
-using DevTest_API.Services;
 using DevTest_API.Services.Interfaces;
 using DevTest_API.Validator;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading;
 
 namespace DevTest_API.Controllers
 {
@@ -31,11 +29,13 @@ namespace DevTest_API.Controllers
         /// <returns></returns>
         /// <response code="200">Solicitud Realizada Correctamente</response>
         /// <response code="204">Sin Contenido</response>
+        /// <response code="401">No autorizado. Token ausente o inválido</response>
         /// <response code="500">Problema Interno de Aplicación</response>
-        [HttpGet("api/usuarios")]
-        [Authorize(Roles = "ADMIN,CONSULTOR")]
+        [HttpGet]
+        [Authorize(Policy = "AdminOConsultor")]
         [ProducesResponseType(statusCode: 200)]
         [ProducesResponseType(statusCode: 204)]
+        [ProducesResponseType(statusCode: 401)]
         [ProducesResponseType(statusCode: 500)]
         public async Task<IActionResult> ListarUsuarios([FromQuery] string? nombre, [FromQuery] Estado? estado)
         {
@@ -67,11 +67,13 @@ namespace DevTest_API.Controllers
         /// <returns></returns>
         /// <response code="200">Registro Encontrado</response>
         /// <response code="204">Sin Contenido</response>
+        /// <response code="401">No autorizado. Token ausente o inválido</response>
         /// <response code="500">Problema interno de aplicación</response>
-        [HttpGet("api/usuarios/{id}")]
-        [Authorize(Roles = "ADMIN,CONSULTOR")]
+        [HttpGet("{id}")]
+        [Authorize(Policy = "AdminOConsultor")]
         [ProducesResponseType(statusCode: 200)]
         [ProducesResponseType(statusCode: 204)]
+        [ProducesResponseType(statusCode: 401)]
         [ProducesResponseType(statusCode: 500)]
         public async Task<IActionResult> BuscarUsuario(int id)
         {
@@ -104,11 +106,13 @@ namespace DevTest_API.Controllers
         /// <returns></returns>
         /// <response code="201">Insertado Correctamente</response>
         /// <response code="400">Solicitud Incorrecta</response>
+        /// <response code="401">No autorizado. Token ausente o inválido</response>
         /// <response code="500">Problema Interno de Aplicación</response>
-        [HttpPost("api/usuarios")]
-        [Authorize(Roles = "ADMIN")]
+        [HttpPost]
+        [Authorize(Policy = "SoloAdmin")]
         [ProducesResponseType(statusCode: 201)]
         [ProducesResponseType(statusCode: 400)]
+        [ProducesResponseType(statusCode: 401)]
         [ProducesResponseType(statusCode: 500)]
         [HttpPost]
         public async Task<IActionResult> InsertarUsuario([FromBody] UsuarioCreateDto usuarioDto, CancellationToken cancellationToken)
@@ -146,11 +150,13 @@ namespace DevTest_API.Controllers
         /// <returns></returns>
         /// <response code="200">Actualizado Correctamente</response>
         /// <response code="204">Sin Contenido</response>
+        /// <response code="401">No autorizado. Token ausente o inválido</response>
         /// <response code="500">Problema interno de aplicación</response>
-        [HttpPut("api/usuarios/{id}")]
-        [Authorize(Roles = "ADMIN")]
+        [HttpPut("{id}")]
+        [Authorize(Policy = "SoloAdmin")]
         [ProducesResponseType(statusCode: 200)]
         [ProducesResponseType(statusCode: 204)]
+        [ProducesResponseType(statusCode: 401)]
         [ProducesResponseType(statusCode: 500)]
         public async Task<IActionResult> ActualizarUsuario(int id, [FromBody] UsuarioCreateDto usuarioDto, CancellationToken cancellationToken)
         {
@@ -179,7 +185,7 @@ namespace DevTest_API.Controllers
                     return NoContent();
                 }
 
-                var usuarioActualizado =  await _usuarioService.ActualizarAsync(id, usuarioDto);
+                var usuarioActualizado = await _usuarioService.ActualizarAsync(id, usuarioDto);
                 _logger.LogInformation("Usuario actualizado correctamente {@Usuario}", usuarioActualizado);
                 return Ok(usuarioActualizado);
             }
@@ -196,11 +202,13 @@ namespace DevTest_API.Controllers
         /// <param name="id">Identificador único del usuario</param>
         /// <response code="200">Eliminado Correctamente</response>
         /// <response code="204">Sin Contenido</response>
+        /// <response code="401">No autorizado. Token ausente o inválido</response>
         /// <response code="500">Problema interno de aplicación</response>
-        [HttpDelete("api/usuarios/{id}")]
-        [Authorize(Roles = "ADMIN")]
+        [HttpDelete("{id}")]
+        [Authorize(Policy = "SoloAdmin")]
         [ProducesResponseType(statusCode: 200)]
         [ProducesResponseType(statusCode: 204)]
+        [ProducesResponseType(statusCode: 401)]
         [ProducesResponseType(statusCode: 500)]
         public async Task<IActionResult> EliminarUsuario(int id)
         {

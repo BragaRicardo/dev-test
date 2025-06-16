@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DevTest_API.DTOs
 {
-    public class UsuarioLoginDto
+    public class LoginRequestDto
     {
         [Required, EmailAddress]
         [Description("Correo personal del usuario")]

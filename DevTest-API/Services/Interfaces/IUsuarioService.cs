@@ -1,4 +1,5 @@
 ﻿using DevTest_API.DTOs;
+using DevTest_API.Entities;
 using DevTest_API.Entities.Enums;
 
 namespace DevTest_API.Services.Interfaces
@@ -11,5 +12,6 @@ namespace DevTest_API.Services.Interfaces
         Task<UsuarioResponseDto> ActualizarAsync(int id, UsuarioCreateDto dto);
         Task<bool> EliminarAsync(int id);
         Task<string> LoginAsync(string correo, string password);
+        Task<Usuario?> ValidarCredencialesAsync(string correo, string password);
     }
 }

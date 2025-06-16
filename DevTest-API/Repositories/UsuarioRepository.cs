@@ -51,5 +51,10 @@ namespace DevTest_API.Repositories
             await _context.SaveChangesAsync();
             return true;
         }
+
+        public async Task<Usuario?> GetByCorreoAsync(string correo)
+        {
+            return await _context.Usuarios.SingleOrDefaultAsync(u => u.Correo == correo);
+        }
     }
 }

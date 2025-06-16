@@ -9,22 +9,19 @@ namespace DevTest_API.DTOs
         public int Id { get; set; }
 
         [Description("Nombre Completo")]
-        public string NombreCompleto { get; set; }
+        public string NombreCompleto { get; set; } = string.Empty;
 
         [Description("Número de Cédula")]
-        public string Cedula { get; set; }
+        public string Cedula { get; set; } = string.Empty;
 
         [Description("Sexo de la persona")]
         public Sexo Sexo { get; set; }
 
         [Description("Correo personal del usuario")]
-        public string Correo { get; set; }
+        public string Correo { get; set; } = string.Empty;
 
         [Description("Dirección de residencia")]
-        public string Direccion { get; set; }
-
-        [Description("Clave/Contraseña Cifrada")]
-        public string Password { get; set; }
+        public string Direccion { get; set; } = string.Empty;
 
         [Description("Rol del usuario")]
         public Rol Rol { get; set; }

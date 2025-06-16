@@ -46,7 +46,7 @@ namespace DevTest_API.Services
             {
                 NombreCompleto = dto.NombreCompleto,
                 Correo = dto.Correo,
-                Password = dto.Password,
+                PasswordHash = dto.Password,
                 Rol = dto.Rol,
                 Estado = Estado.ACTIVO
             };
@@ -68,7 +68,7 @@ namespace DevTest_API.Services
             if (existente == null) return null;
             existente.NombreCompleto = dto.NombreCompleto;
             existente.Correo = dto.Correo;
-            existente.Password = dto.Password;
+            existente.PasswordHash = dto.Password;
             existente.Rol = dto.Rol;
             var actualizado = await _repo.UpdateAsync(existente);
             return new UsuarioResponseDto
@@ -87,9 +87,17 @@ namespace DevTest_API.Services
         public async Task<string?> LoginAsync(string correo, string contrasena)
         {
             var usuarios = await _repo.GetAllAsync(correo, Estado.ACTIVO);
-            var user = usuarios.FirstOrDefault(u => u.Correo == correo && u.Password == contrasena);
+            var user = usuarios.FirstOrDefault(u => u.Correo == correo && u.PasswordHash == contrasena);
             if (user == null) return null;
             return "token_generado_simulado";
+        }
+
+        public async Task<Usuario?> ValidarCredencialesAsync(string correo, string password)
+        {
+            var u = await _repo.GetByCorreoAsync(correo);
+            if (u == null || u.Estado != Estado.ACTIVO)
+                return null;
+            return u.PasswordHash == password ? u : null;
         }
     }
 }
