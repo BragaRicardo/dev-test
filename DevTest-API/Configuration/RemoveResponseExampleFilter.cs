@@ -7,10 +7,15 @@ namespace DevTest_API.Configuration
     {
         public void Apply(OpenApiOperation operation, OperationFilterContext context)
         {
-            if (operation.Responses.ContainsKey("401"))
+            var codigos = new[] { "400", "401", "403" };
+
+            foreach (var codigo in codigos)
             {
-                var response = operation.Responses["401"];
-                response.Content?.Clear();
+                if (operation.Responses.ContainsKey(codigo))
+                {
+                    var response = operation.Responses[codigo];
+                    response.Content?.Clear();
+                }
             }
         }
     }
