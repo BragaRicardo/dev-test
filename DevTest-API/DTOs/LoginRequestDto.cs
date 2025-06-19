@@ -7,9 +7,10 @@ namespace DevTest_API.DTOs
     {
         [Required, EmailAddress]
         [Description("Correo personal del usuario")]
-        public string Correo { get; set; }
+        public required string Correo { get; set; }
+
         [Required]
         [Description("Clave/Contraseña Cifrada")]
-        public string Password { get; set; }
+        public required string Password { get; set; }
     }
 }

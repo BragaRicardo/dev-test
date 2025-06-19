@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DevTest-API</name>
+    </assembly>
+    <members>
+        <member name="M:DevTest_API.Controllers.UsuariosController.ListarUsuarios(System.String,System.Nullable{DevTest_API.Entities.Enums.Estado})">
+            <summary>
+            Método para listar usuarios con filtros opcionales.
+            </summary>
+            <param name="nombre">Nombre del usuario</param>
+            <param name="estado">Estado</param>
+            <returns></returns>
+            <response code="200">Solicitud Realizada Correctamente</response>
+            <response code="204">Sin Contenido</response>
+            <response code="401">No autorizado. Token ausente o inválido</response>
+            <response code="500">Problema Interno de Aplicación</response>
+        </member>
+        <member name="M:DevTest_API.Controllers.UsuariosController.BuscarUsuario(System.Int32)">
+            <summary>
+            Método que obtiene el listado de un usuario específico.
+            </summary>
+            <param name="id">Identificador Único del usuario</param>
+            <returns></returns>
+            <response code="200">Registro Encontrado</response>
+            <response code="204">Sin Contenido</response>
+            <response code="401">No autorizado. Token ausente o inválido</response>
+            <response code="500">Problema interno de aplicación</response>
+        </member>
+        <member name="M:DevTest_API.Controllers.UsuariosController.InsertarUsuario(DevTest_API.DTOs.UsuarioCreateDto,System.Threading.CancellationToken)">
+            <summary>
+            Método para insertar un nuevo usuario.
+            </summary>
+            <param name="usuarioDto">Datos del usuario en formato JSON</param>
+            <param name="cancellationToken">Token para cancelar la operación asincrónica</param>
+            <returns></returns>
+            <response code="201">Insertado Correctamente</response>
+            <response code="400">Solicitud Incorrecta</response>
+            <response code="401">No autorizado. Token ausente o inválido</response>
+            <response code="403">Prohibido. El usuario no tiene permisos para esta acción</response>
+            <response code="500">Problema Interno de Aplicación</response>
+        </member>
+        <member name="M:DevTest_API.Controllers.UsuariosController.ActualizarUsuario(System.Int32,DevTest_API.DTOs.UsuarioCreateDto,System.Threading.CancellationToken)">
+            <summary>
+            Método que actualiza los datos de un usuario.
+            </summary>
+            <param name="id">Identificador Único del usuario</param>
+            <param name="usuarioDto">Datos del usuario en formato JSON</param>
+            <param name="cancellationToken">Token para cancelar la operación asincrónica</param>
+            <returns></returns>
+            <response code="200">Actualizado Correctamente</response>
+            <response code="204">Sin Contenido</response>
+            <response code="401">No autorizado. Token ausente o inválido</response>
+            <response code="403">Prohibido. El usuario no tiene permisos para esta acción</response>
+            <response code="500">Problema interno de aplicación</response>
+        </member>
+        <member name="M:DevTest_API.Controllers.UsuariosController.EliminarUsuario(System.Int32)">
+            <summary>
+            Método que elimina un usuario por su ID.
+            </summary>
+            <param name="id">Identificador único del usuario</param>
+            <response code="200">Eliminado Correctamente</response>
+            <response code="204">Sin Contenido</response>
+            <response code="401">No autorizado. Token ausente o inválido</response>
+            <response code="403">Prohibido. El usuario no tiene permisos para esta acción</response>
+            <response code="500">Problema interno de aplicación</response>
+        </member>
+        <member name="T:DevTest_API.Migrations.CrearTablaUsuarios">
+            <inheritdoc />
+        </member>
+        <member name="M:DevTest_API.Migrations.CrearTablaUsuarios.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:DevTest_API.Migrations.CrearTablaUsuarios.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:DevTest_API.Migrations.CrearTablaUsuarios.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
