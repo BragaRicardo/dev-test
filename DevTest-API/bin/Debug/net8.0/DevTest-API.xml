@@ -4,16 +4,6 @@
         <name>DevTest-API</name>
     </assembly>
     <members>
-        <member name="M:DevTest_API.Controllers.AuthController.Login(DevTest_API.DTOs.LoginRequestDto)">
-            <summary>
-            Autentica un usuario y genera un token JWT si las credenciales son válidas.
-            </summary>
-            <param name="dto">Credenciales del usuario (correo y contraseña)</param>
-            <returns>Token JWT y tiempo de expiración</returns>
-            <response code="200">Autenticación exitosa</response>
-            <response code="401">Credenciales inválidas o usuario inactivo</response>
-            <response code="500">Error interno del servidor</response>
-        </member>
         <member name="M:DevTest_API.Controllers.UsuariosController.ListarUsuarios(System.String,System.Nullable{DevTest_API.Entities.Enums.Estado})">
             <summary>
             Método para listar usuarios con filtros opcionales.
@@ -42,6 +32,7 @@
             Método para insertar un nuevo usuario.
             </summary>
             <param name="usuarioDto">Datos del usuario en formato JSON</param>
+            <param name="cancellationToken">Token para cancelar la operación asincrónica</param>
             <returns></returns>
             <response code="201">Insertado Correctamente</response>
             <response code="400">Solicitud Incorrecta</response>
@@ -55,6 +46,7 @@
             </summary>
             <param name="id">Identificador Único del usuario</param>
             <param name="usuarioDto">Datos del usuario en formato JSON</param>
+            <param name="cancellationToken">Token para cancelar la operación asincrónica</param>
             <returns></returns>
             <response code="200">Actualizado Correctamente</response>
             <response code="204">Sin Contenido</response>

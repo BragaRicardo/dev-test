@@ -16,7 +16,7 @@ namespace DevTest_API.Repositories
             _context = context;
         }
 
-        public async Task<IEnumerable<Usuario>> GetAllAsync(string nombre = null, Estado? estado = null)
+        public async Task<IEnumerable<Usuario>> GetAllAsync(string? nombre = null, Estado? estado = null)
         {
             var query = _context.Usuarios.AsQueryable();
             if (!string.IsNullOrEmpty(nombre)) query = query.Where(u => u.NombreCompleto.Contains(nombre));
@@ -26,13 +26,13 @@ namespace DevTest_API.Repositories
 
         public async Task<Usuario> GetByIdAsync(int id)
         {
-            return await _context.Usuarios.FindAsync(id);
+            return await _context.Usuarios.FindAsync(id).ConfigureAwait(false);
         }
 
         public async Task<Usuario> CreateAsync(Usuario usuario)
         {
             usuario.FechaRegistro = DateTime.UtcNow;
-            usuario.PasswordHash = Base64Utils.Encode(usuario.PasswordHash);
+            usuario.PasswordHash = BCrypt.Net.BCrypt.HashPassword(usuario.PasswordHash, workFactor: 12);
             _context.Usuarios.Add(usuario);
             await _context.SaveChangesAsync();
             return usuario;

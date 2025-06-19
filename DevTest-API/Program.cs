@@ -4,12 +4,14 @@ using DevTest_API.Repositories;
 using DevTest_API.Repositories.Interfaces;
 using DevTest_API.Services;
 using DevTest_API.Services.Interfaces;
+using Hellang.Middleware.ProblemDetails;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -120,8 +122,36 @@ builder.Services.AddAuthorization(options =>
     options.AddPolicy("AdminOConsultor", policy => policy.RequireRole("ADMIN", "CONSULTOR"));
 });
 
+builder.Services.AddProblemDetails(opts =>
+{
+    // Mapear Unauthorized como 401
+    opts.Map<UnauthorizedAccessException>(ex =>
+        new Microsoft.AspNetCore.Mvc.ProblemDetails
+        {
+            Title = "No autorizado",
+            Status = StatusCodes.Status401Unauthorized,
+            Detail = ex.Message
+        });
+    // Mapear ArgumentException como 400
+    opts.Map<ArgumentException>(ex =>
+        new Microsoft.AspNetCore.Mvc.ProblemDetails
+        {
+            Title = "Solicitud inválida",
+            Status = StatusCodes.Status400BadRequest,
+            Detail = ex.Message
+        });
+    // Todas las excepciones no mapeadas a 500
+    opts.MapToStatusCode<Exception>(StatusCodes.Status500InternalServerError);
+});
 var app = builder.Build();
 
+app.UseProblemDetails();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 try
 {
     using var scope = app.Services.CreateScope();
@@ -134,12 +164,6 @@ catch (Exception ex)
 {
     Console.WriteLine("⚠ Error al aplicar migraciones:");
     Console.WriteLine(ex.Message);
-}
-
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();

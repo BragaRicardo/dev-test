@@ -149,3 +149,5 @@ C:\Users\User\Documents\GitHub\dev-test\DevTest-API\bin\Debug\net8.0\System.Iden
 C:\Users\User\Documents\GitHub\dev-test\DevTest-API\bin\Debug\net8.0\DevTest-API.xml
 C:\Users\User\Documents\GitHub\dev-test\DevTest-API\obj\Debug\net8.0\DevTest-API.xml
 C:\Users\User\Documents\GitHub\dev-test\DevTest-API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\User\Documents\GitHub\dev-test\DevTest-API\bin\Debug\net8.0\BCrypt.Net-Next.dll
+C:\Users\User\Documents\GitHub\dev-test\DevTest-API\bin\Debug\net8.0\Hellang.Middleware.ProblemDetails.dll

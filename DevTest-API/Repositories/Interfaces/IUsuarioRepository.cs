@@ -5,7 +5,7 @@ namespace DevTest_API.Repositories.Interfaces
 {
     public interface IUsuarioRepository
     {
-        Task<IEnumerable<Usuario>> GetAllAsync(string nombre = null, Estado? estado = null);
+        Task<IEnumerable<Usuario>> GetAllAsync(string? nombre = null, Estado? estado = null);
         Task<Usuario> GetByIdAsync(int id);
         Task<Usuario> CreateAsync(Usuario usuario);
         Task<Usuario> UpdateAsync(Usuario usuario);
