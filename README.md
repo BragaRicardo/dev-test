@@ -1,38 +1,131 @@
-# DevTest‑API
+# DevTest-API
 
-API REST en .NET 8 para gestión de usuarios con autenticación JWT, CRUD, filtros, roles (**ADMIN / CONSULTOR**) y middleware consolidado.
+**API REST de usuarios** construída en .NET 8, integrada con PostgreSQL (Supabase) y desplegada en Azure App Service.
 
-## 🛠️ Tecnologías
+---
 
-* **.NET 8 (Web API)**
-* **Entity Framework Core** + PostgreSQL
-* **Docker Compose** (para DB, opcional con Supabase)
-* **JWT** para autenticación/autorización
-* **BCrypt** para hash de contraseña
-* **FluentValidation** para validación de entrada
-* **Hellang.Middleware.ProblemDetails** para manejo de errores global
-* **xUnit + Moq + coverlet** para pruebas unitarias
+## 🌐 URL pública
 
-## 🔧 Requisitos
+> Swagger UI en Azure:\
+> [https://devtestapi-usuarios-hxa3emehg5gbaccb.brazilsouth-01.azurewebsites.net/swagger/index.html](https://devtestapi-usuarios-hxa3emehg5gbaccb.brazilsouth-01.azurewebsites.net/swagger/index.html)
 
-* .NET 8 SDK
-* Docker (opcional, si vas a utilizar containerizado)
-* Visual Studio 2022 o VS Code
-* (Opcional) Cuenta y credenciales de Supabase
+---
 
-## 🚀 Levantar la API
+## 📋 Acerca del Proyecto
 
-1. Clona el repositorio y sitúate en la rama `ricardo.braga/desarrollo/DevTest-API`.
-2. Crea un archivo **User Secrets** para las claves:
+Este proyecto, mantenido por Softec, cumple con los siguientes retos:
+
+1. **CRUD de Usuarios**
+
+   - Crear, modificar, eliminar y listar usuarios.
+   - Filtros por estado (ACTIVO/INACTIVO) y nombre.
+   - Campos mínimos:
+     - Identificador único
+     - Nombre completo
+     - Correo electrónico
+     - Contraseña (cifrada con BCrypt)
+     - Estado (ACTIVO / INACTIVO)
+     - Rol (ADMIN / CONSULTOR)
+   - Reglas de acceso:
+     - **ADMIN**: todos los endpoints.
+     - **CONSULTOR**: únicamente `GET`.
+     - Usuarios inactivos NO pueden iniciar sesión.
+
+2. **Autenticación y autorización**
+
+   - JWT con clave secreta (`Jwt:Key`).
+   - Políticas de roles (`SoloAdmin`, `AdminOConsultor`).
+
+3. **Manejo de errores global**
+
+   - Hellang.Middleware.ProblemDetails para responder en JSON con
+     - `400 BadRequest`
+     - `401 Unauthorized`
+     - `403 Forbidden`
+     - `204 NoContent`
+     - `500 InternalServerError`
+
+4. **Pruebas unitarias**
+
+   - xUnit + Moq + coverlet
+   - Tests en `DevTest-API.Tests` para CRUD y validación de credenciales.
+
+5. **Despliegue en la nube**
+
+   - Azure App Service para la API.
+   - Variables de entorno para conexiones y secretos.
+
+---
+
+## 🛠�?Tecnologías
+
+- **.NET 8 (Web API)**
+- **Entity Framework Core** + PostgreSQL (Supabase)
+- **Docker Compose** (opcional, para desarrollo local)
+- **JWT** (System.IdentityModel.Tokens)
+- **BCrypt.Net-Next** (hash de contraseña)
+- **FluentValidation** (validaciones de entrada)
+- **Hellang.Middleware.ProblemDetails** (errores globales)
+- **Swashbuckle/Swagger** (documentación)
+- **xUnit + Moq + coverlet** (pruebas unitarias)
+
+---
+
+## ⚙️ Prerrequisitos
+
+- [.NET 8 SDK](https://dotnet.microsoft.com/download)
+- Cuenta en Supabase (PostgreSQL)
+- Cuenta en Azure (App Service)
+
+---
+
+## 🏡 Desarrollo local
+
+1. **Clonar y cambiar de rama**
 
    ```bash
-   dotnet user-secrets set "Jwt:Key" "<tu–clave–secreta>"
-   dotnet user-secrets set "DB_PASSWORD" "<tu–password–base>"
+   git clone https://github.com/BragaRicardo/dev-test.git
+   cd dev-test
+   git checkout ricardo.braga/desarrollo/DevTest-API
    ```
-3. (Opcional) Ejecuta `docker-compose up` para levantar PostgreSQL local.
-4. O bien, configúrala en Supabase y actualiza `DefaultConnection` y `DB_PASSWORD`.
-5. Ejecuta la aplicación con `dotnet run` o desde Visual Studio.
-   La API estará en [https://localhost:5186](https://localhost:5186) (JSON y Swagger).
+
+2. **Configurar secretos (no exponer en el repo)**
+
+   ```bash
+   cd DevTest-API
+   dotnet user-secrets init
+
+   dotnet user-secrets set "Jwt:Key"      "<TU_JWT_SECRET>"
+   dotnet user-secrets set "DB_PASSWORD"  "<TU_DB_PASSWORD>"
+   ```
+
+   > El `appsettings.json` mantiene la cadena sin contraseña:
+   >
+   > ```json
+   > "ConnectionStrings": {
+   >   "DefaultConnection": "Host=aws-0-us-east-2.pooler.supabase.com;Port=5432;Database=postgres;Username=postgres.fstiushspvzplpwuhplq;SSL Mode=Require;Trust Server Certificate=true"
+   > }
+   > ```
+
+3. **(Opcional) Levantar PostgreSQL en Docker**
+
+   ```bash
+   docker-compose up -d
+   ```
+
+4. **Aplicar migraciones**
+
+   ```bash
+   dotnet ef database update
+   ```
+
+5. **Ejecutar la API**
+
+   ```bash
+   dotnet run
+   ```
+
+   Luego abrir: `https://localhost:5001/swagger/index.html`
 
 ---
 
@@ -40,51 +133,63 @@ API REST en .NET 8 para gestión de usuarios con autenticación JWT, CRUD, filtr
 
 ### Usuarios (`/api/usuarios`)
 
-* **GET** `/` (listar con filtros opcionales) — Roles ADMIN/CONSULTOR
-* **GET** `/{id}` (buscar por ID) — ADMIN/CONSULTOR
-* **POST** / **PUT** / **DELETE** — Solo rol ADMIN
+- `GET  /`\
+  Lista usuarios (filtros opcionales) �?**ADMIN/CONSULTOR**
+- `GET  /{id}`\
+  Obtener por ID �?**ADMIN/CONSULTOR**
+- `POST /`\
+  Crear nuevo �?**Solo ADMIN**
+- `PUT  /{id}`\
+  Actualizar �?**Solo ADMIN**
+- `DELETE /{id}`\
+  Eliminar �?**Solo ADMIN**
 
 ### Autenticación (`/api/auth/login`)
 
-* **POST** con `{ correo, password }`
-  Devuelve token JWT en caso de éxito.
+- `POST`\
+  Request: `{ "correo": "...", "password": "..." }`\
+  Response `200`: `{ token, expiraEn }`\
+  Response `401` si falla.
 
 ---
 
-## ✅ Manejo de errores
+## �?Manejo de errores
 
-* **400 BadRequest** – Validaciones fallidas
-* **401 Unauthorized** – JWT inválido o ausente
-* **403 Forbidden** – Rol sin permiso
-* **204 NoContent** – No se encontró recurso
-* **500 InternalServerError** – Error inesperado (será transformado en `ProblemDetails` JSON)
+- **400 BadRequest** �?Validaciones fallidas
+- **401 Unauthorized** �?JWT inválido o ausente
+- **403 Forbidden** �?Rol sin permiso
+- **204 NoContent** �?Recurso no encontrado
+- **500 InternalServerError** �?Error inesperado (ProblemDetails JSON)
 
 ---
 
 ## 🧪 Pruebas unitarias
 
-Se han agregado tests con **xUnit** y **Moq** en el proyecto `DevTest_API.Tests`:
+En `DevTest-API.Tests` hay tests para:
 
-* `CrearAsync`, `ObtenerTodosAsync`, `ObtenerPorIdAsync`, `ActualizarAsync`, `EliminarAsync`
-* `ValidarCredencialesAsync` (login correcto y fallo)
+- `CrearAsync`, `ObtenerTodosAsync`, `ObtenerPorIdAsync`
+- `ActualizarAsync`, `EliminarAsync`
+- `ValidarCredencialesAsync` (éxito y fallo)
 
-Ejecútalos desde Visual Studio con el explorador de pruebas, o por CLI:
+**Ejecutar**:
 
 ```bash
-dotnet test DevTest_API.Tests/DevTest_API.Tests.csproj
+cd DevTest-API.Tests
+dotnet test
 ```
-
-Cobertura de tests integrada con **coverlet**.
 
 ---
 
-## 📘 Swagger
+## 🚀 Despliegue en Azure App Service
 
-Disponible en modo desarrollo vía
-[https://localhost:5186/swagger](https://localhost:5186/swagger)
+1. **Publicar** desde Visual Studio �?Azure App Service.
+2. En el portal de Azure �?**Configuración** �?**Configuración de la aplicación**, añadir:
+   - `ConnectionStrings__DefaultConnection`
+     ```text
+     Host=aws-0-us-east-2.pooler.supabase.com;Port=5432;Database=postgres;Username=postgres.fstiushspvzplpwuhplq;Password=<TU_DB_PASSWORD>;SSL Mode=Require;Trust Server Certificate=true
+     ```
+   - `Jwt__Key` = `<TU_JWT_SECRET>`
+3. **Reiniciar** App Service.
 
-Incluye secciones para:
+---
 
-* Autenticación (Bearer)
-* Filtros
-* Respuestas posibles
