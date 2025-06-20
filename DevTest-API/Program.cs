@@ -124,6 +124,20 @@ builder.Services.AddAuthorization(options =>
     options.AddPolicy("AdminOConsultor", policy => policy.RequireRole("ADMIN", "CONSULTOR"));
 });
 
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+        policy =>
+        {
+            policy.WithOrigins(
+                "http://localhost:3000",
+                "https://dev-test-hmn18sq5i-ricardo-bragas-projects-add6e9d9.vercel.app"
+            )
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+        });
+});
 builder.Services.AddProblemDetails(opts =>
 {
     // Mapear Unauthorized como 401
@@ -173,6 +187,7 @@ catch (Exception ex)
 
 app.UseHttpsRedirection();
 
+app.UseCors(MyAllowSpecificOrigins);
 app.UseAuthentication();
 app.UseAuthorization();
 
