@@ -29,37 +29,35 @@ export default function LoginPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
-      <div className="w-full max-w-md bg-white rounded-xl shadow-md p-8">
-        <div className="flex justify-center mb-6">
-          <img
-            src="/logo-softec.svg"
-            alt="Logo de Softec"
-            className="h-14"
-          />
-        </div>
-        <h1 className="text-2xl font-bold text-center text-black mb-6">Iniciar sesión</h1>
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center">
+        <img
+          src="/logo-softec.svg"
+          alt="Logo de Softec"
+          className="h-20 mb-6"
+        />
+        <h1 className="text-2xl font-bold text-center text-gray-900 mb-6">Iniciar sesión</h1>
+        <form onSubmit={handleSubmit(onSubmit)} className="w-full flex flex-col gap-4">
           <input
             {...register('correo')}
             placeholder="Correo electrónico"
-            className="w-full px-4 py-2 border rounded text-black"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg text-black bg-gray-50 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <input
             {...register('password')}
             type="password"
             placeholder="Contraseña"
-            className="w-full px-4 py-2 border rounded text-black"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg text-black bg-gray-50 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           {error && <p className="text-red-600 text-sm">{error}</p>}
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition-colors font-semibold"
+            className="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition"
           >
             Entrar
           </button>
         </form>
       </div>
-    </main>
+    </div>
   );
 }
