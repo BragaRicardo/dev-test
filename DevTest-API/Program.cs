@@ -130,10 +130,14 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: MyAllowSpecificOrigins,
         policy =>
         {
-            policy.WithOrigins(
-                "http://localhost:3000",
-                "https://dev-test-hmn18sq5i-ricardo-bragas-projects-add6e9d9.vercel.app"
-            )
+            policy
+                .SetIsOriginAllowed(origin =>
+                    (origin != null && (
+                        origin.StartsWith("http://localhost") ||
+                        origin.StartsWith("https://localhost") ||
+                        origin.EndsWith(".vercel.app")
+                    ))
+                )
             .AllowAnyHeader()
             .AllowAnyMethod();
         });
