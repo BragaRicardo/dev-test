@@ -4,14 +4,14 @@
 
 ---
 
-## ?? URL p®≤blica
+## üåê URL p√∫blica
 
 > Swagger UI en Azure:  
 > [https://devtestapi-usuarios-hxa3emehg5gbaccb.brazilsouth-01.azurewebsites.net/swagger/index.html](https://devtestapi-usuarios-hxa3emehg5gbaccb.brazilsouth-01.azurewebsites.net/swagger/index.html)
 
 ---
 
-## ?? Acerca del Proyecto
+## üîç Acerca del Proyecto
 
 Este proyecto, mantenido por Softec, cumple con los siguientes retos:
 
@@ -19,22 +19,22 @@ Este proyecto, mantenido por Softec, cumple con los siguientes retos:
 
    - Crear, modificar, eliminar y listar usuarios.
    - Filtros por estado (ACTIVO/INACTIVO) y nombre.
-   - Campos m®™nimos:
-     - Identificador ®≤nico
+   - Campos m√≠nimos:
+     - Identificador √∫nico
      - Nombre completo
-     - Correo electr®Ænico
-     - Contrase?a (cifrada con BCrypt)
+     - Correo electr√≥nico
+     - Contrase√±a (cifrada con BCrypt)
      - Estado (ACTIVO / INACTIVO)
      - Rol (ADMIN / CONSULTOR)
    - Reglas de acceso:
      - **ADMIN**: todos los endpoints.
-     - **CONSULTOR**: ®≤nicamente `GET`.
-     - Usuarios inactivos NO pueden iniciar sesi®Æn.
+     - **CONSULTOR**: √∫nicamente `GET`.
+     - Usuarios inactivos NO pueden iniciar sesi√≥n.
 
-2. **Autenticaci®Æn y autorizaci®Æn**
+2. **Autenticaci√≥n y autorizaci√≥n**
 
    - JWT con clave secreta (`Jwt:Key`).
-   - Pol®™ticas de roles (`SoloAdmin`, `AdminOConsultor`).
+   - Pol√≠ticas de roles (`SoloAdmin`, `AdminOConsultor`).
 
 3. **Manejo de errores global**
 
@@ -48,7 +48,7 @@ Este proyecto, mantenido por Softec, cumple con los siguientes retos:
 4. **Pruebas unitarias**
 
    - xUnit + Moq + coverlet
-   - Tests en `DevTest-API.Tests` para CRUD y validaci®Æn de credenciales.
+   - Tests en `DevTest-API.Tests` para CRUD y validaci√≥n de credenciales.
 
 5. **Despliegue en la nube**
 
@@ -57,21 +57,21 @@ Este proyecto, mantenido por Softec, cumple con los siguientes retos:
 
 ---
 
-## ?? Tecnolog®™as
+## üß∞ Tecnolog√≠as
 
 - **.NET 8 (Web API)**
 - **Entity Framework Core** + PostgreSQL (Supabase)
 - **Docker Compose** (opcional, para desarrollo local)
 - **JWT** (System.IdentityModel.Tokens)
-- **BCrypt.Net-Next** (hash de contrase?a)
+- **BCrypt.Net-Next** (hash de contrase√±a)
 - **FluentValidation** (validaciones de entrada)
 - **Hellang.Middleware.ProblemDetails** (errores globales)
-- **Swashbuckle/Swagger** (documentaci®Æn)
+- **Swashbuckle/Swagger** (documentaci√≥n)
 - **xUnit + Moq + coverlet** (pruebas unitarias)
 
 ---
 
-## ?? Prerrequisitos
+## ‚öôÔ∏è Prerrequisitos
 
 - [.NET 8 SDK](https://dotnet.microsoft.com/download)
 - Cuenta en Supabase (PostgreSQL)
@@ -79,7 +79,7 @@ Este proyecto, mantenido por Softec, cumple con los siguientes retos:
 
 ---
 
-## ?? Desarrollo local
+## üíª Desarrollo local
 
 1. **Clonar y cambiar de rama**
 
@@ -99,7 +99,7 @@ Este proyecto, mantenido por Softec, cumple con los siguientes retos:
    dotnet user-secrets set "DB_PASSWORD"  "<TU_DB_PASSWORD>"
    ```
 
-   > El `appsettings.json` mantiene la cadena sin contrase?a:
+   > El `appsettings.json` mantiene la cadena sin contrase√±a:
    >
    > ```json
    > "ConnectionStrings": {
@@ -129,22 +129,22 @@ Este proyecto, mantenido por Softec, cumple con los siguientes retos:
 
 ---
 
-## ?? Endpoints disponibles
+## üì´ Endpoints disponibles
 
 ### Usuarios (`/api/usuarios`)
 
 - `GET  /`  
-  Lista usuarios (filtros opcionales) °˙ **ADMIN/CONSULTOR**
+  Lista usuarios (filtros opcionales) ‚Üí **ADMIN/CONSULTOR**
 - `GET  /{id}`  
-  Obtener por ID °˙ **ADMIN/CONSULTOR**
+  Obtener por ID ‚Üí **ADMIN/CONSULTOR**
 - `POST /`  
-  Crear nuevo °˙ **Solo ADMIN**
+  Crear nuevo ‚Üí **Solo ADMIN**
 - `PUT  /{id}`  
-  Actualizar °˙ **Solo ADMIN**
+  Actualizar ‚Üí **Solo ADMIN**
 - `DELETE /{id}`  
-  Eliminar °˙ **Solo ADMIN**
+  Eliminar ‚Üí **Solo ADMIN**
 
-### Autenticaci®Æn (`/api/auth/login`)
+### Autenticaci√≥n (`/api/auth/login`)
 
 - `POST`  
   Request: `{ "correo": "...", "password": "..." }`  
@@ -153,23 +153,23 @@ Este proyecto, mantenido por Softec, cumple con los siguientes retos:
 
 ---
 
-## ? Manejo de errores
+## ‚úÖ Manejo de errores
 
-- **400 BadRequest** °˙ Validaciones fallidas
-- **401 Unauthorized** °˙ JWT inv®¢lido o ausente
-- **403 Forbidden** °˙ Rol sin permiso
-- **204 NoContent** °˙ Recurso no encontrado
-- **500 InternalServerError** °˙ Error inesperado (ProblemDetails JSON)
+- **400 BadRequest** ‚Üí Validaciones fallidas
+- **401 Unauthorized** ‚Üí JWT inv√°lido o ausente
+- **403 Forbidden** ‚Üí Rol sin permiso
+- **204 NoContent** ‚Üí Recurso no encontrado
+- **500 InternalServerError** ‚Üí Error inesperado (ProblemDetails JSON)
 
 ---
 
-## ?? Pruebas unitarias
+## üß™ Pruebas unitarias
 
 En `DevTest-API.Tests` hay tests para:
 
 - `CrearAsync`, `ObtenerTodosAsync`, `ObtenerPorIdAsync`
 - `ActualizarAsync`, `EliminarAsync`
-- `ValidarCredencialesAsync` (®¶xito y fallo)
+- `ValidarCredencialesAsync` (√©xito y fallo)
 
 **Ejecutar**:
 
@@ -180,10 +180,10 @@ dotnet test
 
 ---
 
-## ?? Despliegue en Azure App Service
+## üöÄ Despliegue en Azure App Service
 
-1. **Publicar** desde Visual Studio °˙ Azure App Service.
-2. En el portal de Azure °˙ **Configuraci®Æn** °˙ **Configuraci®Æn de la aplicaci®Æn**, a?adir:
+1. **Publicar** desde Visual Studio ‚Üí Azure App Service.
+2. En el portal de Azure ‚Üí **Configuraci√≥n** ‚Üí **Configuraci√≥n de la aplicaci√≥n**, a√±adir:
    - `ConnectionStrings__DefaultConnection`
      ```text
      Host=aws-0-us-east-2.pooler.supabase.com;Port=5432;Database=postgres;Username=postgres.fstiushspvzplpwuhplq;Password=<TU_DB_PASSWORD>;SSL Mode=Require;Trust Server Certificate=true
