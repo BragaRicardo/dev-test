@@ -58,7 +58,10 @@ namespace DevTest_API.Services
             var nuevo = new Usuario
             {
                 NombreCompleto = dto.NombreCompleto,
+                Cedula = dto.Cedula,
+                Sexo = dto.Sexo,
                 Correo = dto.Correo,
+                Direccion = dto.Direccion,
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password, workFactor: 12),
                 Rol = dto.Rol,
                 Estado = Estado.ACTIVO
@@ -69,7 +72,10 @@ namespace DevTest_API.Services
             {
                 Id = creado.Id,
                 NombreCompleto = creado.NombreCompleto,
+                Cedula = creado.Cedula,
+                Sexo = creado.Sexo,
                 Correo = creado.Correo,
+                Direccion = creado.Direccion,
                 Rol = creado.Rol,
                 Estado = creado.Estado,
                 FechaRegistro = creado.FechaRegistro
@@ -85,7 +91,10 @@ namespace DevTest_API.Services
                 throw new KeyNotFoundException($"Usuario con ID {id} no encontrado.");
             }
             existente.NombreCompleto = dto.NombreCompleto;
+            existente.Cedula = dto.Cedula;
+            existente.Sexo = dto.Sexo;
             existente.Correo = dto.Correo;
+            existente.Direccion = dto.Direccion;
             existente.PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password, workFactor: 12);
             existente.Rol = dto.Rol;
             var actualizado = await _repo.UpdateAsync(existente);
@@ -94,7 +103,10 @@ namespace DevTest_API.Services
             {
                 Id = actualizado.Id,
                 NombreCompleto = actualizado.NombreCompleto,
+                Cedula = actualizado.Cedula,
+                Sexo = actualizado.Sexo,
                 Correo = actualizado.Correo,
+                Direccion = actualizado.Direccion,
                 Rol = actualizado.Rol,
                 Estado = actualizado.Estado,
                 FechaRegistro = actualizado.FechaRegistro
