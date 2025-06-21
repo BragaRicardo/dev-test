@@ -25,7 +25,10 @@ namespace DevTest_API.Services
             {
                 Id = u.Id,
                 NombreCompleto = u.NombreCompleto,
+                Cedula = u.Cedula,
+                Sexo = u.Sexo,
                 Correo = u.Correo,
+                Direccion = u.Direccion,
                 Rol = u.Rol,
                 Estado = u.Estado,
                 FechaRegistro = u.FechaRegistro
@@ -45,7 +48,10 @@ namespace DevTest_API.Services
             {
                 Id = u.Id,
                 NombreCompleto = u.NombreCompleto,
+                Cedula = u.Cedula,
+                Sexo = u.Sexo,
                 Correo = u.Correo,
+                Direccion = u.Direccion,
                 Rol = u.Rol,
                 Estado = u.Estado,
                 FechaRegistro = u.FechaRegistro
