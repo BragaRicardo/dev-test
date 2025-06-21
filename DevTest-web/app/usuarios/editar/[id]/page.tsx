@@ -29,11 +29,11 @@ export default function EditarUsuarioPage() {
       const data = res.data;
       setValue('nombreCompleto', data.nombreCompleto);
       setValue('cedula', data.cedula);
-      setValue('sexo', data.sexo);
+      setValue('sexo', data.sexo.toUpperCase()); // Asegura que sea 'MASCULINO' o 'FEMENINO'
       setValue('correo', data.correo);
       setValue('direccion', data.direccion);
-      setValue('password', ''); // Se requiere campo aunque no se actualice visiblemente
-      setValue('rol', data.rol);
+      setValue('password', ''); // Se requiere el campo aunque no se actualice visiblemente
+      setValue('rol', data.rol.toUpperCase()); // Asegura que sea 'ADMIN' o 'CONSULTOR'
     }).catch(() => {
       Swal.fire('Error', 'No se pudo cargar el usuario.', 'error');
       router.push('/usuarios');

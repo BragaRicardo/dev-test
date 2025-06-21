@@ -8,9 +8,13 @@ import Swal from 'sweetalert2';
 type Usuario = {
   id: number;
   nombreCompleto: string;
+  cedula: string;
+  sexo: string;
   correo: string;
-  estado: string;
+  direccion: string;
   rol: string;
+  estado: string;
+  fechaRegistro: string;
 };
 
 export default function UsuariosPage() {
@@ -74,7 +78,7 @@ export default function UsuariosPage() {
 
   return (
     <main className="min-h-screen bg-gray-100 p-6">
-      <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-md p-6">
+      <div className="max-w-7xl mx-auto bg-white rounded-xl shadow-md p-6">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-bold text-black">Lista de Usuarios</h1>
           <button
@@ -88,39 +92,51 @@ export default function UsuariosPage() {
           <table className="min-w-full text-sm text-left text-black">
             <thead className="bg-gray-200 text-gray-700">
               <tr>
+                <th className="px-4 py-2">ID</th>
                 <th className="px-4 py-2">Nombre</th>
+                <th className="px-4 py-2">Cédula</th>
+                <th className="px-4 py-2">Sexo</th>
                 <th className="px-4 py-2">Correo</th>
+                <th className="px-4 py-2">Dirección</th>
                 <th className="px-4 py-2">Rol</th>
                 <th className="px-4 py-2">Estado</th>
+                <th className="px-4 py-2">Registro</th>
                 <th className="px-4 py-2 text-center">Acciones</th>
               </tr>
             </thead>
             <tbody>
               {usuarios.map((usuario) => (
                 <tr key={usuario.id} className="border-t">
+                  <td className="px-4 py-2">{usuario.id}</td>
                   <td className="px-4 py-2">{usuario.nombreCompleto}</td>
+                  <td className="px-4 py-2">{usuario.cedula}</td>
+                  <td className="px-4 py-2 capitalize">{usuario.sexo.toLowerCase()}</td>
                   <td className="px-4 py-2">{usuario.correo}</td>
-                  <td className="px-4 py-2">{usuario.rol}</td>
-                  <td className="px-4 py-2">{usuario.estado}</td>
-                  <td className="px-4 py-2 text-center space-x-2">
-                    <button
-                      onClick={() => router.push(`/usuarios/editar/${usuario.id}`)}
-                      className="bg-yellow-400 text-white px-3 py-1 rounded hover:bg-yellow-500"
-                    >
-                      Editar
-                    </button>
-                    <button
-                      onClick={() => eliminarUsuario(usuario.id, usuario.nombreCompleto)}
-                      className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
-                    >
-                      Eliminar
-                    </button>
+                  <td className="px-4 py-2">{usuario.direccion}</td>
+                  <td className="px-4 py-2 capitalize">{usuario.rol.toLowerCase()}</td>
+                  <td className="px-4 py-2 capitalize">{usuario.estado.toLowerCase()}</td>
+                  <td className="px-4 py-2">{new Date(usuario.fechaRegistro).toLocaleDateString()}</td>
+                  <td className="px-4 py-2 text-center">
+                    <div className="flex flex-col space-y-2 items-center">
+                      <button
+                        onClick={() => router.push(`/usuarios/editar/${usuario.id}`)}
+                        className="bg-yellow-400 text-white px-4 py-1 rounded hover:bg-yellow-500 w-24"
+                      >
+                        Editar
+                      </button>
+                      <button
+                        onClick={() => eliminarUsuario(usuario.id, usuario.nombreCompleto)}
+                        className="bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600 w-24"
+                      >
+                        Eliminar
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}
               {usuarios.length === 0 && (
                 <tr>
-                  <td colSpan={5} className="text-center py-4 text-gray-500">
+                  <td colSpan={10} className="text-center py-4 text-gray-500">
                     No se encontraron usuarios.
                   </td>
                 </tr>
