@@ -1,194 +1,224 @@
-# DevTest-API
+# DevTest API + Frontend
 
-**API REST de usuarios** construida en .NET 8, integrada con PostgreSQL (Supabase) y desplegada en Azure App Service.
+**Sistema completo para gestión de usuarios**, desarrollado como parte del desafío técnico solicitado por Softec. Incluye:
+
+- API REST en .NET 8 con PostgreSQL (Supabase)
+- Autenticación JWT y control de roles
+- Frontend en Next.js desplegado en Vercel
+- UI moderna y funcional, con validaciones y SweetAlert2
 
 ---
 
-## 🌐 URL pública
+## 🌐 URLs públicas
 
-> Swagger UI en Azure:  
-> [https://devtestapi-usuarios-hxa3emehg5gbaccb.brazilsouth-01.azurewebsites.net/swagger/index.html](https://devtestapi-usuarios-hxa3emehg5gbaccb.brazilsouth-01.azurewebsites.net/swagger/index.html)
+- 🔐 **Frontend login y gestión:**  
+  https://dev-test-32y9f4hnw-ricardo-bragas-projects-add6e9d9.vercel.app/login
+
+- 🔧 **API (Swagger UI):**  
+  https://devtestapi-usuarios-hxa3emehg5gbaccb.brazilsouth-01.azurewebsites.net/swagger/index.html
 
 ---
 
 ## 🔍 Acerca del Proyecto
 
-Este proyecto, mantenido por Softec, cumple con los siguientes retos:
+Este proyecto cumple con todos los desafíos planteados por Softec, tanto del lado backend como frontend:
 
-1. **CRUD de Usuarios**
+### ✔ Backend (.NET API)
 
-   - Crear, modificar, eliminar y listar usuarios.
-   - Filtros por estado (ACTIVO/INACTIVO) y nombre.
-   - Campos mínimos:
-     - Identificador único
-     - Nombre completo
-     - Correo electrónico
-     - Contraseña (cifrada con BCrypt)
-     - Estado (ACTIVO / INACTIVO)
-     - Rol (ADMIN / CONSULTOR)
-   - Reglas de acceso:
-     - **ADMIN**: todos los endpoints.
-     - **CONSULTOR**: únicamente `GET`.
-     - Usuarios inactivos NO pueden iniciar sesión.
+- CRUD completo de usuarios
+- Roles (ADMIN y CONSULTOR)
+- Estados (ACTIVO / INACTIVO)
+- Autenticación con JWT
+- Password cifrada con BCrypt
+- Validaciones con FluentValidation
+- Manejo global de errores con `ProblemDetails`
+- Pruebas unitarias (xUnit + Moq)
 
-2. **Autenticación y autorización**
+### ✔ Frontend (Next.js + Tailwind)
 
-   - JWT con clave secreta (`Jwt:Key`).
-   - Políticas de roles (`SoloAdmin`, `AdminOConsultor`).
-
-3. **Manejo de errores global**
-
-   - Hellang.Middleware.ProblemDetails para responder en JSON con:
-     - `400 BadRequest`
-     - `401 Unauthorized`
-     - `403 Forbidden`
-     - `204 NoContent`
-     - `500 InternalServerError`
-
-4. **Pruebas unitarias**
-
-   - xUnit + Moq + coverlet
-   - Tests en `DevTest-API.Tests` para CRUD y validación de credenciales.
-
-5. **Despliegue en la nube**
-
-   - Azure App Service para la API.
-   - Variables de entorno para conexiones y secretos.
+- Login de usuario con token JWT
+- Redirección por sesión activa
+- Pantalla de **lista de usuarios** con:
+  - Tabla de datos completa
+  - Botón Editar (redirección)
+  - Botón Eliminar con confirmación SweetAlert2
+- Pantalla de **alta de usuario**
+- Pantalla de **edición de usuario**, con todos los campos:
+  - Nombre completo, cédula, sexo, dirección, correo, rol, contraseña
+- Validaciones detalladas por campo
+- Navegación clara y responsive
 
 ---
 
-## 🧰 Tecnologías
+## 📦 Tecnologías utilizadas
 
-- **.NET 8 (Web API)**
-- **Entity Framework Core** + PostgreSQL (Supabase)
-- **Docker Compose** (opcional, para desarrollo local)
-- **JWT** (System.IdentityModel.Tokens)
-- **BCrypt.Net-Next** (hash de contraseña)
-- **FluentValidation** (validaciones de entrada)
-- **Hellang.Middleware.ProblemDetails** (errores globales)
-- **Swashbuckle/Swagger** (documentación)
-- **xUnit + Moq + coverlet** (pruebas unitarias)
+### Backend
+- .NET 8 Web API
+- Entity Framework Core
+- PostgreSQL (Supabase)
+- JWT + roles
+- BCrypt.Net-Next
+- FluentValidation
+- xUnit, Moq
+- Swagger
+- Docker (opcional)
+- Azure App Service
 
----
-
-## ⚙️ Prerrequisitos
-
-- [.NET 8 SDK](https://dotnet.microsoft.com/download)
-- Cuenta en Supabase (PostgreSQL)
-- Cuenta en Azure (App Service)
-
----
-
-## 💻 Desarrollo local
-
-1. **Clonar y cambiar de rama**
-
-   ```bash
-   git clone https://github.com/BragaRicardo/dev-test.git
-   cd dev-test
-   git checkout ricardo.braga/desarrollo/DevTest-API
-   ```
-
-2. **Configurar secretos (no exponer en el repo)**
-
-   ```bash
-   cd DevTest-API
-   dotnet user-secrets init
-
-   dotnet user-secrets set "Jwt:Key"      "<TU_JWT_SECRET>"
-   dotnet user-secrets set "DB_PASSWORD"  "<TU_DB_PASSWORD>"
-   ```
-
-   > El `appsettings.json` mantiene la cadena sin contraseña:
-   >
-   > ```json
-   > "ConnectionStrings": {
-   >   "DefaultConnection": "Host=aws-0-us-east-2.pooler.supabase.com;Port=5432;Database=postgres;Username=postgres.fstiushspvzplpwuhplq;SSL Mode=Require;Trust Server Certificate=true"
-   > }
-   > ```
-
-3. **(Opcional) Levantar PostgreSQL en Docker**
-
-   ```bash
-   docker-compose up -d
-   ```
-
-4. **Aplicar migraciones**
-
-   ```bash
-   dotnet ef database update
-   ```
-
-5. **Ejecutar la API**
-
-   ```bash
-   dotnet run
-   ```
-
-   Luego abrir: `https://localhost:5001/swagger/index.html`
+### Frontend
+- Next.js 14 con App Router
+- React Hook Form
+- Axios
+- SweetAlert2
+- Tailwind CSS
+- Vercel para despliegue
 
 ---
 
-## 📫 Endpoints disponibles
+## ⚙️ Cómo ejecutar localmente
 
-### Usuarios (`/api/usuarios`)
+### 🔧 API
 
-- `GET  /`  
-  Lista usuarios (filtros opcionales) → **ADMIN/CONSULTOR**
-- `GET  /{id}`  
-  Obtener por ID → **ADMIN/CONSULTOR**
-- `POST /`  
-  Crear nuevo → **Solo ADMIN**
-- `PUT  /{id}`  
-  Actualizar → **Solo ADMIN**
-- `DELETE /{id}`  
-  Eliminar → **Solo ADMIN**
+```bash
+git clone https://github.com/BragaRicardo/dev-test.git
+cd dev-test
+git checkout ricardo.braga/desarrollo/DevTest-API
+cd DevTest-API
+dotnet user-secrets init
 
-### Autenticación (`/api/auth/login`)
+# Configurar secretos
+dotnet user-secrets set "Jwt:Key" "<TU_JWT_SECRET>"
+dotnet user-secrets set "DB_PASSWORD" "<TU_DB_PASSWORD>"
+```
+
+Revisar `appsettings.json`:
+
+```json
+"ConnectionStrings": {
+  "DefaultConnection": "Host=aws-0-us-east-2.pooler.supabase.com;Port=5432;Database=postgres;Username=postgres.fstiushspvzplpwuhplq;SSL Mode=Require;Trust Server Certificate=true"
+}
+```
+
+```bash
+# Opcional: levantar PostgreSQL
+docker-compose up -d
+
+# Aplicar migraciones
+dotnet ef database update
+
+# Ejecutar API
+dotnet run
+```
+
+### 🖥 Frontend
+
+```bash
+cd DevTest-web
+npm install
+npm run dev
+```
+
+Configurar `.env.local` con la API pública:
+
+```
+NEXT_PUBLIC_API_URL=https://devtestapi-usuarios-hxa3emehg5gbaccb.brazilsouth-01.azurewebsites.net
+```
+
+---
+
+## 📫 Endpoints disponibles (API)
+
+### `/api/usuarios`
+
+| Método | Ruta           | Rol        | Descripción              |
+|--------|----------------|------------|--------------------------|
+| GET    | `/`            | ADMIN, CONSULTOR | Listar usuarios         |
+| GET    | `/{id}`        | ADMIN, CONSULTOR | Obtener usuario por ID  |
+| POST   | `/`            | ADMIN      | Crear usuario            |
+| PUT    | `/{id}`        | ADMIN      | Editar usuario           |
+| DELETE | `/{id}`        | ADMIN      | Eliminar usuario         |
+
+### `/api/auth/login`
 
 - `POST`  
-  Request: `{ "correo": "...", "password": "..." }`  
-  Response `200`: `{ token, expiraEn }`  
-  Response `401` si falla.
+  Input: `{ "correo": "user@example.com", "password": "..." }`  
+  Output: `{ token, expiraEn }`
 
 ---
 
-## ✅ Manejo de errores
+## ✅ Validaciones / errores
 
-- **400 BadRequest** → Validaciones fallidas
-- **401 Unauthorized** → JWT inválido o ausente
-- **403 Forbidden** → Rol sin permiso
-- **204 NoContent** → Recurso no encontrado
-- **500 InternalServerError** → Error inesperado (ProblemDetails JSON)
+| Código | Caso                              |
+|--------|------------------------------------|
+| 400    | Campos inválidos (FluentValidation) |
+| 401    | Token inválido o ausente           |
+| 403    | Rol sin permiso                    |
+| 204    | No encontrado                      |
+| 500    | Error interno                      |
 
 ---
 
 ## 🧪 Pruebas unitarias
 
-En `DevTest-API.Tests` hay tests para:
-
-- `CrearAsync`, `ObtenerTodosAsync`, `ObtenerPorIdAsync`
-- `ActualizarAsync`, `EliminarAsync`
-- `ValidarCredencialesAsync` (éxito y fallo)
-
-**Ejecutar**:
+Ubicadas en `DevTest-API.Tests`. Ejecutar con:
 
 ```bash
 cd DevTest-API.Tests
 dotnet test
 ```
 
+Cobertura sobre:
+- Crear, editar, eliminar, obtener usuario
+- Validación de login
+
 ---
 
 ## 🚀 Despliegue en Azure App Service
 
-1. **Publicar** desde Visual Studio → Azure App Service.
-2. En el portal de Azure → **Configuración** → **Configuración de la aplicación**, añadir:
-   - `ConnectionStrings__DefaultConnection`
-     ```text
-     Host=aws-0-us-east-2.pooler.supabase.com;Port=5432;Database=postgres;Username=postgres.fstiushspvzplpwuhplq;Password=<TU_DB_PASSWORD>;SSL Mode=Require;Trust Server Certificate=true
-     ```
-   - `Jwt__Key` = `<TU_JWT_SECRET>`
-3. **Reiniciar** App Service.
+1. Publicar API desde Visual Studio
+2. En Azure → Configuración de aplicación:
+
+```env
+ConnectionStrings__DefaultConnection = Host=aws-0-us-east-2.pooler.supabase.com;Port=5432;Database=postgres;Username=postgres.fstiushspvzplpwuhplq;Password=<TU_DB_PASSWORD>;SSL Mode=Require;Trust Server Certificate=true
+Jwt__Key = <TU_JWT_SECRET>
+```
+
+3. Reiniciar servicio.
 
 ---
+
+## ✅ Cumplimiento completo del desafío Softec
+
+> **BACKEND**
+- ✅ CRUD usuarios (POST, PUT, GET, DELETE)
+- ✅ Roles (ADMIN / CONSULTOR)
+- ✅ Estado (ACTIVO / INACTIVO)
+- ✅ Autenticación y autorización
+- ✅ JWT con control de acceso
+- ✅ Pruebas unitarias
+
+> **FRONTEND**
+- ✅ Login funcional con JWT
+- ✅ Pantalla de listado de usuarios
+- ✅ Alta de usuarios
+- ✅ Edición de usuarios
+- ✅ Eliminación con confirmación
+- ✅ UI amigable y validada
+- ✅ Manejo de errores y expiración de token
+
+---
+
+**🌟 Valor agregado**
+
+- UI moderna y responsive
+- SweetAlert para interacción con el usuario
+- Roles completamente funcionales
+- Integración API-Frontend validada
+- Readme detallado para facilitar revisión y pruebas
+
+**🎉 Proyecto completo, desplegado y funcional.**
+
+**🙏 Agradecimientos**
+
+Gracias por la oportunidad de realizar este desafío. El resultado fue un proyecto fullstack profesional, con todas las funcionalidades pedidas funcionando de extremo a extremo.
+
+```Autor: Ricardo Javier González BragaContacto: bragaricardo2022@gmail.com```
